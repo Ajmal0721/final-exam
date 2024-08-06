@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+    <style>
+        .navbar {
+            background-color: #ffcc00;
+            padding: 10px;
+            list-style-type: none;
+            text-align: center;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        .navbar li {
+            margin: 0 15px;
+        }
+        .navbar a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .navbar a:hover {
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul class="navbar">
+            <li><a href="/">Home</a></li>
+            <li><a href="/my-articles">My Articles</a></li>
+            <li><a href="/article/new">New Article</a></li>
+            <li><a href="/logout">Logout</a></li>
+            <li><a href="/register">Register</a></li> <!-- Added Register link -->
+        </ul>
+    </nav>
+</body>
+</html>

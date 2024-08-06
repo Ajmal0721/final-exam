@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article List</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        h1 {
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: #ffcc00;
+            padding: 10px;
+            list-style-type: none;
+            text-align: center;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .navbar li {
+            margin: 0 15px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .navbar a:hover {
+            color: #555;
+        }
+
+        /* Article List Styles */
+        .article-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .article-item {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+            margin-bottom: 10px;
+        }
+
+        .article-item h2 {
+            font-size: 1.5em;
+            color: #333;
+            margin: 0;
+        }
+
+        .article-item p {
+            font-size: 1em;
+            color: #666;
+        }
+
+        .article-item a {
+            text-decoration: none;
+            color: #ffcc00;
+            font-weight: bold;
+        }
+
+        .article-item a:hover {
+            color: #ffbb00;
+        }
+    </style>
+</head>
+
+<body>
+    <%- include('navbar') %>
+        <div class="container">
+            <h1>Article List</h1>
+            <!-- Check if there are articles -->
+            <% if (articles && articles.length> 0) { %>
+                <ul class="article-list">
+                    <!-- Loop through each article and display it -->
+                    <% articles.forEach(article=> { %>
+                        <li class="article-item">
+                            <h2>
+                                <%= article.title %>
+                            </h2>
+                            <p>
+                                <%= article.content.substring(0, 100) %>...
+                            </p>
+                            <a href="/article/<%= article._id %>">Read More</a>
+                        </li>
+                        <% }); %>
+                </ul>
+                <% } else { %>
+                    <p>No articles available at the moment.</p>
+                    <% } %>
+        </div>
+</body>
+
+</html>
